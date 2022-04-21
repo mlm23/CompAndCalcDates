@@ -10,6 +10,10 @@ namespace CompAndCalcDates
     {
         static void Main(string[] args)
         {
+            const string NombreFichero = "TextoEspannol.txt";
+
+
+            ExtraerFichero.ExtraerFicheroEspannol(NombreFichero);
             //Se crea dos numeros que representan el periodo para cada fecha
             int PeriodoFecha1 = Funciones.SolicitarPeriodo();
             Console.WriteLine("A continuación se introducirá la primera fecha");

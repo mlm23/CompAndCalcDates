@@ -1,0 +1,34 @@
+La fechas es 
+A continuación visualizaremos la diferencia entre las dos fechas dadas: 
+A continuación visualizaremos la diferencia entre la primera fecha y la fecha actualmente: 
+A continuación visualizaremos la diferencia entre la segunda fecha y la fecha actualmente: 
+Pulse 0 si el siguiente año es antes de Cristo o teclee 1 si es despúes de Cristo
+Dato no válido el periodo debe ser un número entero
+Presione una tecla para volver a intentarlo
+El periodo no puede ser negativo
+Presione una tecla para volver a intentarlo
+No ha introducido un 0 o 1
+Presione una tecla para volver a intentarlo
+Introduza el año
+Dato no válido el año tiene que ser un número entero
+Presione una tecla para volver a intentarlo
+Fuera de rango
+Presione una tecla para volver a intentarlo
+El año no puede ser negativo
+Presione una tecla para volver a intentarlo
+Introduzca el nombre del mes
+Nombre del mes mal introducido
+Presione una tecla para volver a intentarlo
+Introduzca el dia del {0} del mes {1}
+Dato no válido el día tiene que ser un número entero
+Presione una tecla para volver a intentarlo
+El día tiene que ser positivo
+Presione una tecla para volver a intentarlo
+Dato no válido el día tiene que ser menor al máximo o igual  que es 29
+Presione una tecla para volver a intentarlo
+Dato no válido el día tiene que ser menor al máximo o igual  que es 28
+Presione una tecla para volver a intentarlo
+Dato no válido el día tiene que ser menor al máximo o igual que es 31
+Presione una tecla para volver a intentarlo
+Dato no válido el día tiene que ser menor al máximo o igual que es 30
+Presione una tecla para volver a intentarlo

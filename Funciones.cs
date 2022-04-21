@@ -68,8 +68,8 @@ namespace CompAndCalcDates
                 Console.WriteLine(" Pulse 0 si el siguiente año es antes de Cristo o teclee 1 si es despúes de Cristo");
                 if (!int.TryParse(Console.ReadLine(), out periodo))
                 {
-                    Console.WriteLine("dato no válido el periodo que ser un número entero");
-                    Console.WriteLine("pulse para volver a intentarlo");
+                    Console.WriteLine("Dato no válido el periodo debe ser un número entero");
+                    Console.WriteLine("Presione una tecla para volver a intentarlo");
                     Console.ReadKey();
                 }
                 else
@@ -77,8 +77,8 @@ namespace CompAndCalcDates
                     //El periodo no puede ser negativo y el usuario vuelve a introducir el dato
                     if (periodo < 0)
                     {
-                        Console.WriteLine("el periodo no puede ser negativo");
-                        Console.WriteLine("pulse para volver a intentarlo");
+                        Console.WriteLine("El periodo no puede ser negativo");
+                        Console.WriteLine("Presione una tecla para volver a intentarlo");
                         Console.ReadKey();
                     }
                     else
@@ -97,8 +97,8 @@ namespace CompAndCalcDates
                             }
                             else
                             {
-                                Console.WriteLine(" no ha introducido un 0 o 1");
-                                Console.WriteLine("pulse para volver a intentarlo");
+                                Console.WriteLine("No ha introducido un 0 o 1");
+                                Console.WriteLine("Presione una tecla para volver a intentarlo");
                                 Console.ReadKey();
                             }
 
@@ -122,11 +122,11 @@ namespace CompAndCalcDates
             //no salimos hasta que la entrada de datos esté correctamente
             do
             {
-                Console.WriteLine("introduza el año");
+                Console.WriteLine("Introduza el año");
                 if (!int.TryParse(Console.ReadLine(), out anno))
                 {
-                    Console.WriteLine("dato no válido el año tiene que ser un número entero");
-                    Console.WriteLine("pulse para volver a intentarlo");
+                    Console.WriteLine("Dato no válido el año tiene que ser un número entero");
+                    Console.WriteLine("Presione una tecla para volver a intentarlo");
                     Console.ReadKey();
                 }
                 else
@@ -141,16 +141,16 @@ namespace CompAndCalcDates
                         }
                         else
                         {
-                            Console.WriteLine("fuera de rango");
-                            Console.WriteLine("pulse para volver a intentarlo");
+                            Console.WriteLine("Fuera de rango");
+                            Console.WriteLine("Presione una tecla para volver a intentarlo");
                             Console.ReadKey();
                         }
 
                     }
                     else
                     {
-                        Console.WriteLine("el año no puede ser negativo");
-                        Console.WriteLine("pulse para volver a intentarlo");
+                        Console.WriteLine("El año no puede ser negativo");
+                        Console.WriteLine("Presione una tecla para volver a intentarlo");
                         Console.ReadKey();
                     }
                 }
@@ -174,7 +174,7 @@ namespace CompAndCalcDates
             bool leido = false;
             do
             {
-                Console.WriteLine("introduzca el nombre del mes");
+                Console.WriteLine("Introduzca el nombre del mes");
                 string cadena = Console.ReadLine().Trim();
                 if (cadena != "")
                 {
@@ -186,8 +186,8 @@ namespace CompAndCalcDates
                         if (contador >= meses.Length)
                         {
                             recorrer = true;
-                            Console.WriteLine("nombre del mes mal introducido");
-                            Console.WriteLine("pulse para volver a intentarlo");
+                            Console.WriteLine("Nombre del mes mal introducido");
+                            Console.WriteLine("Presione una tecla para volver a intentarlo");
                             Console.ReadKey();
                         }
                         else
@@ -290,11 +290,11 @@ namespace CompAndCalcDates
             bool leido = false;
             do
             {
-                Console.WriteLine("introduzca el dia del {0} del mes {1}", anno, mes);
+                Console.WriteLine("Introduzca el dia del {0} del mes {1}", anno, mes);
                 if (!Int32.TryParse(Console.ReadLine(), out dia))
                 {
-                    Console.WriteLine("dato no válido el dia tiene que ser un número entero");
-                    Console.WriteLine("pulse para volver a intentarlo");
+                    Console.WriteLine("Dato no válido el dia tiene que ser un número entero");
+                    Console.WriteLine("Presione una tecla para volver a intentarlo");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -308,8 +308,8 @@ namespace CompAndCalcDates
                     else
 
                     {
-                        Console.WriteLine(" el dia tiene que ser positivo");
-                        Console.WriteLine("pulse para volver a intentarlo");
+                        Console.WriteLine("El dia tiene que ser positivo");
+                        Console.WriteLine("Presione una tecla para volver a intentarlo");
                         Console.ReadKey();
                     }
 
@@ -335,8 +335,8 @@ namespace CompAndCalcDates
                 }
                 else
                 {
-                    Console.WriteLine("dato no válido el dia tiene que ser menor al máximo o igual  que es 29");
-                    Console.WriteLine("pulse para volver a intentarlo");
+                    Console.WriteLine("Dato no válido el dia tiene que ser menor al máximo o igual  que es 29");
+                    Console.WriteLine("Presione una tecla para volver a intentarlo");
                     Console.ReadKey();
                     Console.Clear();
                     Error = true;
@@ -350,8 +350,8 @@ namespace CompAndCalcDates
                 }
                 else
                 {
-                    Console.WriteLine("dato no válido el dia tiene que ser menor al máximo o igual  que es 28");
-                    Console.WriteLine("pulse para volver a intentarlo");
+                    Console.WriteLine("Dato no válido el dia tiene que ser menor al máximo o igual  que es 28");
+                    Console.WriteLine("Presione una tecla para volver a intentarlo");
                     Console.ReadKey();
                     Console.Clear();
                     Error = true;
@@ -367,8 +367,8 @@ namespace CompAndCalcDates
             }
             else
             {
-                Console.WriteLine("dato no válido el dia tiene que ser menor al máximo o igual que es 31");
-                Console.WriteLine("pulse para volver a intentarlo");
+                Console.WriteLine("Dato no válido el dia tiene que ser menor al máximo o igual que es 31");
+                Console.WriteLine("Presione una tecla para volver a intentarlo");
                 Console.ReadKey();
                 Console.Clear();
                 Error = true;
@@ -384,8 +384,8 @@ namespace CompAndCalcDates
             }
             else
             {
-                Console.WriteLine("dato no válido el dia tiene que ser menor al máximo o igual que es 30");
-                Console.WriteLine("pulse para volver a intentarlo");
+                Console.WriteLine("Dato no válido el dia tiene que ser menor al máximo o igual que es 30");
+                Console.WriteLine("Presione una tecla para volver a intentarlo");
                 Console.ReadKey();
                 Console.Clear();
                 Error = true;

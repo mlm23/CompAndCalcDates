@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace inclui.CompAndCalcDates
 {
     class PedirFechas
     {
-        private const string FicheroPedirFecha_ES = "lenguajes/espannol/Program_ES.txt";
-        private static List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(FicheroPedirFecha_ES);
+        private const string Ruta = @"..\..\lenguajes\espannol\Program_ES.txt";
+        private static List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(Ruta);
 
         public static void PrimeraFecha()
         {

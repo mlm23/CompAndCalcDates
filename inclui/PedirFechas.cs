@@ -10,8 +10,7 @@ namespace inclui.CompAndCalcDates
     class PedirFechas
     {
         private const string Ruta = @"..\..\lenguajes\espannol\Program_ES.txt";
-        private static List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(Ruta);
-
+        private static readonly List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(Ruta);
         public static void PrimeraFecha()
         {
             Console.WriteLine(contenidoEspañol[0]);

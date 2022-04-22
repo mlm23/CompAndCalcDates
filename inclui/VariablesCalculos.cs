@@ -8,16 +8,32 @@ namespace inclui.CompAndCalcDates
 {
     class VariablesCalculos
     {
-        private static string RutaEspannol = @"..\..\lenguajes\espannol\Calculos_ES.txt";
-        private static string RutaIngles = @"..\..\lenguajes\espannol\Calculos_EN.txt";
-        private static readonly List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(RutaEspannol);
+        
+
+        public static List<string> SeleccionFecha(string SeleccionIdioma)
+        {
+            string RutaEspannol = @"..\..\lenguajes\espannol\Calculos_ES.txt";
+            string RutaIngles = @"..\..\lenguajes\ingles\Calculos_EN.txt";
+            string Ruta = "";
+
+            switch (SeleccionIdioma)
+            {
+                case "Español": Ruta = RutaEspannol; break; //Español
+                case "Ingles": Ruta = RutaIngles; break; //Ingles
+            }
+
+            List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(Ruta);
+
+            return Mensajes;
+        }
+
         /// <summary>
         /// Concatena la diferencia en años de la actualidad de una fecha
         /// </summary>
         /// <param name="DiferenciasAnnios"></param>
         /// <param name="DiferenciaDias"></param>
         /// <returns></returns>
-        public static string PrimerConcatenado(int DiferenciasAnnios,int DiferenciaDias)
+        public static string PrimerConcatenado(int DiferenciasAnnios,int DiferenciaDias, List<string> Mensajes)
         {
             string concatenado = Mensajes[0] + DiferenciasAnnios + Mensajes[1] + DiferenciaDias;
             return concatenado;
@@ -28,7 +44,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="DiferenciasAnnios"></param>
         /// <param name="DiferenciaDias"></param>
         /// <returns></returns>
-        public static string SegundoConcatenado(int DiferenciasAnnios, int DiferenciaDias)
+        public static string SegundoConcatenado(int DiferenciasAnnios, int DiferenciaDias, List<string> Mensajes)
         {
             string concatenado = Mensajes[2] + DiferenciasAnnios + Mensajes[3] + DiferenciaDias;
             return concatenado;

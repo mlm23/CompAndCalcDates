@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="inclui\ExtraerFichero.cs" />
+    <Compile Include="inclui\Menu.cs" />
     <Compile Include="innui\Calculos.cs" />
     <Compile Include="innui\Funciones.cs" />
     <Compile Include="innui\Fechas.cs" />

@@ -8,16 +8,31 @@ namespace inclui.CompAndCalcDates
 {
     class MostradoFunciones
     {
-        private static string RutaEspannol = @"..\..\lenguajes\espannol\Funciones_ES.txt";
-        private static string RutaIngles = @"..\..\lenguajes\espannol\Funciones_EN.txt";
-        private static readonly List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(RutaEspannol);
+       
+
+        public static List<string> SeleccionFecha(string SeleccionIdioma)
+        {
+            string RutaEspannol = @"..\..\lenguajes\espannol\Funciones_ES.txt";
+            string RutaIngles = @"..\..\lenguajes\ingles\Funciones_EN.txt";
+            string Ruta = "";
+
+            switch (SeleccionIdioma)
+            {
+                case "Español": Ruta = RutaEspannol; break; //Español
+                case "Ingles": Ruta = RutaIngles; break; //Ingles
+            }
+
+            List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(Ruta);
+
+            return Mensajes;
+        }
 
         /// <summary>
         /// esto sirve para presentar por pantalla las fechas que el usuario ha introducido
         /// </summary>
         /// <param name="Fecha1"> La primera Fecha que ha introducido </param>
         /// <param name="Fecha2"> La segunda Fecha que ha introducido </param>
-        public static string MostrarFechas(List<int> Fecha)
+        public static string MostrarFechas(List<int> Fecha, List<string> Mensajes)
         {
             string cadena = Mensajes[0] + Fecha[0] + "-" + Fecha[1] + "-" + Fecha[2];
             Console.WriteLine(cadena);
@@ -30,7 +45,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="DiferenciaEntreFechas"> el valor de la diferencia entre las dos fechas introducidas por el usuario</param>
         /// <param name="DiferenciaHoyFecha1"> el valor de la diferencia entre la primera fecha y la fecha actual </param>
         /// <param name="DiferenciaHoyFecha2">  el valor de la diferencia entre la segunda fecha y la fecha actual </param>
-        public static void MostrarEdades(string DiferenciaEntreFechas, string DiferenciaHoyFecha1, string DiferenciaHoyFecha2)
+        public static void MostrarEdades(string DiferenciaEntreFechas, string DiferenciaHoyFecha1, string DiferenciaHoyFecha2, List<string> Mensajes)
         {
             Console.WriteLine(Mensajes[1]);
             Console.WriteLine(DiferenciaEntreFechas);
@@ -47,7 +62,7 @@ namespace inclui.CompAndCalcDates
         /// Solicitar un número para saber si la fecha está antes o después de Cristo
         /// </summary>
         /// <returns> El valor 0 o 1 que indica el Periodo </returns>
-        public static int SolicitarPeriodo()
+        public static int SolicitarPeriodo(List<string> Mensajes)
         {
             int periodo = 0;
             bool leido = false;
@@ -101,7 +116,7 @@ namespace inclui.CompAndCalcDates
         /// Solicita el Año de la fecha 
         /// </summary>
         /// <returns> El valor del año de la fecha</returns>
-        public static int SolicitarAnno()
+        public static int SolicitarAnno(List<string> Mensajes)
         {
             int anno = 0;
             bool leido = false;
@@ -147,7 +162,7 @@ namespace inclui.CompAndCalcDates
         /// Solicita el mes de la fecha
         /// </summary>
         /// <returns> El valor del mes</returns>
-        public static int SolicitarMes()
+        public static int SolicitarMes(List<string> Mensajes)
         {
             int mes = 0;
             //creo un array en donde están los nombres de los meses, el objetivo es que el usuario introduzca el nombre del mes
@@ -200,7 +215,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="anno"></param>
         /// <param name="dia"></param>
         /// <returns></returns>
-        public static int IntroducirDia(int mes, int anno, int dia)
+        public static int IntroducirDia(int mes, int anno, int dia, List<string> Mensajes)
         {
             bool leido = false;
             do
@@ -237,7 +252,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="bisiesto"></param>
         /// <param name="dia"></param>
         /// <param name="Error"></param>
-        public static void DiaFebrero(bool bisiesto, int dia, ref bool Error)
+        public static void DiaFebrero(bool bisiesto, int dia, ref bool Error, List<string> Mensajes)
         {
             if (bisiesto)
             {
@@ -275,7 +290,7 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="Error"></param>
         /// <param name="dia"></param>
-        public static void MesImpar(ref bool Error, int dia)
+        public static void MesImpar(ref bool Error, int dia, List<string> Mensajes)
         {
             //en los meses impares del año los días son hasta 31
             if (dia <= 31)
@@ -296,7 +311,7 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="Error"></param>
         /// <param name="dia"></param>
-        public static void MesPar(ref bool Error, int dia)
+        public static void MesPar(ref bool Error, int dia, List<string> Mensajes)
         {
             //en los meses pares del año los días son hasta 30
             if (dia <= 30)

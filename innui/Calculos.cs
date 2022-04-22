@@ -15,7 +15,7 @@ namespace innui.CompAndCalcDates
        /// <param name="Periodo"></param>
        /// <param name="FechaActual"></param>
        /// <returns> La cadena  que  representa los resultados obtenidos</returns>
-        public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual)
+        public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual, List<string> MensajesCalculos)
         {
             string linea;
             int DiferenciaAnnos = HallarAnnos(Periodo, FechaActual, Fecha);
@@ -24,7 +24,7 @@ namespace innui.CompAndCalcDates
             DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
             //el string linea sirve concatenar el texto y los calculos realizados anteriormente para posteriormente mostrarlo por pantalla
-            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAnnos, DiferenciaDias);
+            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAnnos, DiferenciaDias, MensajesCalculos);
             return linea;
         }
         /// <summary>
@@ -36,14 +36,14 @@ namespace innui.CompAndCalcDates
         /// <param name="Periodo2"></param>
         /// <param name="FechaActual"></param>
         /// <returns> La cadena  que  representa los resultados obtenidos</returns>
-        public static string DiferenciasEntreFechas(List<int> Fecha1, List<int> Fecha2, int Periodo1, int Periodo2)
+        public static string DiferenciasEntreFechas(List<int> Fecha1, List<int> Fecha2, int Periodo1, int Periodo2, List<string> Mensajes)
         {
             string cadena;
             int DiferenciaAnnos = CalcularDiferenciaAnnos(Periodo1, Periodo2, Fecha1, Fecha2);
             int DiferenciaDias = CalcularDiferenciaDias(Fecha1, Fecha2, DiferenciaAnnos);
             DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
-            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAnnos, DiferenciaDias);
+            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAnnos, DiferenciaDias, Mensajes);
             return cadena;
         }
 

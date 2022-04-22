@@ -9,19 +9,20 @@ namespace innui.CompAndCalcDates
     public class Funciones
     {
         
+
         /// <summary>
         /// Se encarga de recoger cada dato que va introduciendo por consola y a su vez la va agregando en lista
         /// </summary>
         /// <returns> Una lista con año, mes y día </returns>
-        public static List<int> RellenarArrays()
+        public static List<int> RellenarArrays(List<string> Mensajes)
         {
             List<int> Fecha = new List<int>();
-            int anno = inclui.CompAndCalcDates.MostradoFunciones.SolicitarAnno();
+            int anno = inclui.CompAndCalcDates.MostradoFunciones.SolicitarAnno(Mensajes);
             Fecha.Add(anno);
-            int mes = inclui.CompAndCalcDates.MostradoFunciones.SolicitarMes();
+            int mes = inclui.CompAndCalcDates.MostradoFunciones.SolicitarMes(Mensajes);
             Fecha.Add(mes);
             bool bisiesto = Funciones.Comprobarbisiesto(anno);
-            int dia = Funciones.ComprobacionDias(anno, mes, bisiesto);
+            int dia = Funciones.ComprobacionDias(anno, mes, bisiesto, Mensajes);
             Fecha.Add(dia);
             Console.Clear();
             return Fecha;
@@ -48,7 +49,7 @@ namespace innui.CompAndCalcDates
         /// <param name="mes"></param>
         /// <param name="bisiesto"></param>
         /// <returns> el valor del dia de la fecha </returns>
-        public static int ComprobacionDias(int anno, int mes, bool bisiesto)
+        public static int ComprobacionDias(int anno, int mes, bool bisiesto, List<string> Mensajes)
         {
             int dia = 0;
             bool Correcto = false;
@@ -56,12 +57,12 @@ namespace innui.CompAndCalcDates
             do
             {
                 //llamamos a la función que se introduce el número del dia 
-                dia = inclui.CompAndCalcDates.MostradoFunciones.IntroducirDia(mes, anno, dia);
+                dia = inclui.CompAndCalcDates.MostradoFunciones.IntroducirDia(mes, anno, dia, Mensajes);
                 //En el caso que el mes sea febrero
                 if (mes == 2)
                 { 
                     //LLamamos a la funcion que chequea el dia esté entre los limites establecidos
-                    inclui.CompAndCalcDates.MostradoFunciones.DiaFebrero(bisiesto, dia, ref Error);
+                    inclui.CompAndCalcDates.MostradoFunciones.DiaFebrero(bisiesto, dia, ref Error, Mensajes);
                     //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                     if (!Error)
                     {
@@ -74,7 +75,7 @@ namespace innui.CompAndCalcDates
                     if (mes % 2 != 0)
                     {
                         //LLamamos a la funcion para verificar que el valor de dia esté entre los limites establecidos (max 31)
-                        inclui.CompAndCalcDates.MostradoFunciones.MesImpar(ref Error, dia);
+                        inclui.CompAndCalcDates.MostradoFunciones.MesImpar(ref Error, dia, Mensajes);
                         //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                         if (!Error)
                         {
@@ -84,7 +85,7 @@ namespace innui.CompAndCalcDates
                     else
                     {
                         //LLamamos a la funcion para verificar que el valor de dia esté entre los limites establecidos (max 30)
-                        inclui.CompAndCalcDates.MostradoFunciones.MesPar(ref Error, dia);
+                        inclui.CompAndCalcDates.MostradoFunciones.MesPar(ref Error, dia, Mensajes);
                         //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                         if (!Error)
                         {

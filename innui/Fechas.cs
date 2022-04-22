@@ -8,6 +8,10 @@ namespace innui.CompAndCalcDates
 {
     class CalculoYMostradoDeFechas
     {
+        /// <summary>
+        /// Pide los periodos de cada fecha para luego mostrar su edad actual y la diferencia entre estas mismas
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             //Se crea dos numeros que representan el periodo para cada fecha

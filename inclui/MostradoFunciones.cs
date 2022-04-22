@@ -271,7 +271,11 @@ namespace inclui.CompAndCalcDates
                 }
             }
         }
-
+        /// <summary>
+        /// Se encarga de verificar que en los meses impares cumpla el límite de los 31 días
+        /// </summary>
+        /// <param name="Error"></param>
+        /// <param name="dia"></param>
         public static void MesImpar(ref bool Error, int dia)
         {
             //en los meses impares del año los días son hasta 31
@@ -288,7 +292,11 @@ namespace inclui.CompAndCalcDates
                 Error = true;
             }
         }
-
+        /// <summary>
+        /// Se encarga de verificar que en los meses pares cumpla el límite de los 30 días
+        /// </summary>
+        /// <param name="Error"></param>
+        /// <param name="dia"></param>
         public static void MesPar(ref bool Error, int dia)
         {
             //en los meses pares del año los días son hasta 30

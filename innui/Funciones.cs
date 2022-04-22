@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace inclui.CompAndCalcDates
+namespace innui.CompAndCalcDates
 {
     public class Funciones
     {

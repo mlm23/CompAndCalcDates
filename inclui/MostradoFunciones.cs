@@ -171,6 +171,9 @@ namespace inclui.CompAndCalcDates
             string[] meses = {"enero","febrero","marzo",
                 "abril","mayo","junio","julio","agosto",
                     "septiembre","octubre","noviembre","diciembre"};
+            string[] months = {"january","february","march",
+                "april","may","june","july","august",
+                    "september","october","november","december"};
             bool leido = false;
             do
             {
@@ -199,6 +202,16 @@ namespace inclui.CompAndCalcDates
                                 mes = contador + 1;
                                 recorrer = true;
                                 leido = true;
+                            }
+                            else
+                            {
+                                if (cadena.ToLower() == months[contador])
+                                {
+                                    //el mes es la posicion en donde se haya el mes en el array
+                                    mes = contador + 1;
+                                    recorrer = true;
+                                    leido = true;
+                                }
                             }
                         }
                         contador++;

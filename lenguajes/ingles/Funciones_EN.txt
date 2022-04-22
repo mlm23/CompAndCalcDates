@@ -1,4 +1,4 @@
-The dates is
+The dates is 
 Below we will display the difference between the two given dates:
 Below we will display the difference between the first date and the current date:
 Below we will display the difference between the second date and the current date:

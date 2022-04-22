@@ -12,9 +12,9 @@ namespace innui.CompAndCalcDates
         {
             //Se crea dos numeros que representan el periodo para cada fecha
             int PeriodoFecha1 = Funciones.SolicitarPeriodo();
-            Console.WriteLine("A continuación se introducirá la primera fecha");
+            inclui.CompAndCalcDates.PedirFechas.PrimeraFecha();
             List<int> Fecha1 = Funciones.RellenarArrays();
-            Console.WriteLine("A continuación se introducirá la segunda fecha");
+            inclui.CompAndCalcDates.PedirFechas.SegundaFecha();
             int PeriodoFecha2= Funciones.SolicitarPeriodo();
             //Se recoge los datos a lista para que sea más sencillo los cálculos
             List<int> Fecha2 = Funciones.RellenarArrays();
@@ -23,10 +23,9 @@ namespace innui.CompAndCalcDates
             //Ahora toca presentar por pantalla las fechas
             string fecha1 = Funciones.MostrarFechas(Fecha1);
             string fecha2 = Funciones.MostrarFechas(Fecha2);
-           
-            Console.WriteLine("pulse para continuar");
-            Console.ReadKey();
-            Console.Clear();
+
+            inclui.CompAndCalcDates.PedirFechas.Continuar();
+
 
             //Cálculos
             string DiferenciaFechas = Calculos.DiferenciasEntreFechas(Fecha1, Fecha2, PeriodoFecha1, PeriodoFecha2);

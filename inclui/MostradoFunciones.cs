@@ -41,7 +41,6 @@ namespace inclui.CompAndCalcDates
             Console.WriteLine(Mensajes[3]);
             Console.WriteLine("\n ");
             Console.WriteLine(DiferenciaHoyFecha2);
-
         }
 
         /// <summary>

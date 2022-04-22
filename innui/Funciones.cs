@@ -23,6 +23,7 @@ namespace innui.CompAndCalcDates
             bool bisiesto = Funciones.Comprobarbisiesto(anno);
             int dia = Funciones.ComprobacionDias(anno, mes, bisiesto);
             Fecha.Add(dia);
+            Console.Clear();
             return Fecha;
         }
               

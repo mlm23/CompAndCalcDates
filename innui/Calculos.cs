@@ -18,13 +18,13 @@ namespace innui.CompAndCalcDates
         public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual)
         {
             string linea;
-            int DiferenciaAños = HallarAños(Periodo, FechaActual, Fecha);
-            int DiferenciaDias = HallarDiasHastaHoy(FechaActual, Fecha, Periodo,DiferenciaAños);
+            int DiferenciaAnnos = HallarAnnos(Periodo, FechaActual, Fecha);
+            int DiferenciaDias = HallarDiasHastaHoy(FechaActual, Fecha, Periodo,DiferenciaAnnos);
             //si la difencia es negativa , hacemos el valor absoluto para que la diferencia sea positiva
-            DiferenciaAños = Math.Abs(DiferenciaAños);
+            DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
             //el string linea sirve concatenar el texto y los calculos realizados anteriormente para posteriormente mostrarlo por pantalla
-            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAños, DiferenciaDias);
+            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAnnos, DiferenciaDias);
             return linea;
         }
         /// <summary>
@@ -39,11 +39,11 @@ namespace innui.CompAndCalcDates
         public static string DiferenciasEntreFechas(List<int> Fecha1, List<int> Fecha2, int Periodo1, int Periodo2)
         {
             string cadena;
-            int DiferenciaAños = CalcularDiferenciaAños(Periodo1, Periodo2, Fecha1, Fecha2);
-            int DiferenciaDias = CalcularDiferenciaDias(Fecha1, Fecha2, DiferenciaAños);
-            DiferenciaAños = Math.Abs(DiferenciaAños);
+            int DiferenciaAnnos = CalcularDiferenciaAnnos(Periodo1, Periodo2, Fecha1, Fecha2);
+            int DiferenciaDias = CalcularDiferenciaDias(Fecha1, Fecha2, DiferenciaAnnos);
+            DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
-            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAños, DiferenciaDias);
+            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAnnos, DiferenciaDias);
             return cadena;
         }
 
@@ -54,20 +54,20 @@ namespace innui.CompAndCalcDates
         /// <param name="FechaActual"></param>
         /// <param name="Fecha"></param>
         /// <returns> El valor de la diferencia</returns>
-        public static int HallarAños(int Periodo, List<int>FechaActual, List<int>Fecha)
+        public static int HallarAnnos(int Periodo, List<int>FechaActual, List<int>Fecha)
         {
-            int años = 0;
+            int annos = 0;
             //Si la fecha introducida es después de Cristo, la diferencia sería restando los años
             if(Periodo==1)
             {
-                años = FechaActual[0] - Fecha[0];
+                annos = FechaActual[0] - Fecha[0];
             }
             //Si la fecha introducida es antes de Cristo, la diferencia sería sumando los años
             if (Periodo==0)
             {
-                años = FechaActual[0] + Fecha[0];
+                annos = FechaActual[0] + Fecha[0];
             }
-            return años;
+            return annos;
         }
         /// <summary>
         /// Calcula el total de días que han transcurrido entre la fecha introducida a la fecha actual
@@ -136,30 +136,30 @@ namespace innui.CompAndCalcDates
         /// <param name="Fecha1"></param>
         /// <param name="Fecha2"></param>
         /// <returns>El valor de la diferencia de años</returns>
-        public static int CalcularDiferenciaAños(int periodo1, int periodo2, List<int>Fecha1, List<int>Fecha2)
+        public static int CalcularDiferenciaAnnos(int periodo1, int periodo2, List<int>Fecha1, List<int>Fecha2)
         {
-            int añosTotales = 0;
+            int annosTotales = 0;
             if(periodo1==periodo2)//están en la misma Época , se restan los años
             {
-                añosTotales=Fecha1[0] - Fecha2[0];
+                annosTotales=Fecha1[0] - Fecha2[0];
             }
             else
             {
                 //si la primera fecha está en la era de Cristo y la segunda antes de cristo, ambas se restan
                 if(periodo1==1 && periodo2==0)
                 {
-                    añosTotales = Fecha1[0] + Fecha2[0];
+                    annosTotales = Fecha1[0] + Fecha2[0];
                 }
                 else
                 {
                     //si la primera fecha está antes de Cristo y la segunda después de cristo, ambas se suman
                     if (periodo1==0 && periodo2==1)
                     {
-                        añosTotales = Fecha1[0] + Fecha2[0];
+                        annosTotales = Fecha1[0] + Fecha2[0];
                     }
                 }
             }
-            return añosTotales;
+            return annosTotales;
         }
         /// <summary>
         /// El objetivo es calcular los días de difencecia entre ambas fechas introducida por el usuario
@@ -171,11 +171,11 @@ namespace innui.CompAndCalcDates
         public static int CalcularDiferenciaDias(List<int> Fecha1, List<int> Fecha2, int diferenciaAnno)
         {
             //sumamos los años totales para calcular los dias totales bisiestos
-            int AñosTotales = Fecha1[0] + Fecha2[0];
+            int AnnosTotales = Fecha1[0] + Fecha2[0];
             int diferencias = 0;
             int diasBisiestos = 0;
             //recorremos los años totales y vemos a cada año bisiesto sumamos un día
-            for (int contador = Fecha1[0]; contador==AñosTotales; contador++)
+            for (int contador = Fecha1[0]; contador==AnnosTotales; contador++)
             {
                 if (DateTime.IsLeapYear(contador))
                 {
@@ -188,13 +188,13 @@ namespace innui.CompAndCalcDates
             //Recorremos el año de la primera fecha y sumamos los días ya transcurridos en lo que llevamos de año
             for (int contador = 0; contador < Fecha1[1]; contador++)
             {
-                diastotales1 = diastotales1 + NDias[contador];
+                diastotales1 += NDias[contador];
             }
             //Recorre el año de la segunda fecha y se suma el valor de cada mes trancurrido
             int diastotales2 = 0;
             for (int contador = 0; contador < Fecha2[1]; contador++)
             {
-                diastotales2 = diastotales2 + NDias[contador];
+                diastotales2 += NDias[contador];
             }
             diferencias = diferenciaAnno * 365 + diasBisiestos + diastotales1 + Fecha1[2] - Fecha2[2] - diastotales2;
             return diferencias;

@@ -9,21 +9,23 @@ namespace inclui.CompAndCalcDates
 {
     class PedirFechas
     {
-        private const string Ruta = @"..\..\lenguajes\espannol\Program_ES.txt";
-        private static readonly List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(Ruta);
+
+        private static string RutaEspannol = @"..\..\lenguajes\espannol\Program_ES.txt";
+        private static string RutaIngles = @"..\..\lenguajes\espannol\Program_EN.txt";
+        private static readonly List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(RutaEspannol);
         public static void PrimeraFecha()
         {
-            Console.WriteLine(contenidoEspañol[0]);
+            Console.WriteLine(Mensajes[0]);
         }
 
         public static void SegundaFecha()
         {
-            Console.WriteLine(contenidoEspañol[1]);
+            Console.WriteLine(Mensajes[1]);
         }
 
         public static void Continuar()
         {
-            Console.WriteLine(contenidoEspañol[2]);
+            Console.WriteLine(Mensajes[2]);
             Console.ReadKey();
             Console.Clear();
         }

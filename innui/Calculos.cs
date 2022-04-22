@@ -17,14 +17,14 @@ namespace innui.CompAndCalcDates
        /// <returns> La cadena  que  representa los resultados obtenidos</returns>
         public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual)
         {
-            string linea = "";
+            string linea;
             int DiferenciaAños = HallarAños(Periodo, FechaActual, Fecha);
             int DiferenciaDias = HallarDiasHastaHoy(FechaActual, Fecha, Periodo,DiferenciaAños);
             //si la difencia es negativa , hacemos el valor absoluto para que la diferencia sea positiva
             DiferenciaAños = Math.Abs(DiferenciaAños);
             DiferenciaDias = Math.Abs(DiferenciaDias);
             //el string linea sirve concatenar el texto y los calculos realizados anteriormente para posteriormente mostrarlo por pantalla
-            linea += " La diferencia entre la Fecha Actual  " + DiferenciaAños + " en años y con días " + DiferenciaDias;
+            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAños, DiferenciaDias);
             return linea;
         }
         /// <summary>
@@ -38,12 +38,12 @@ namespace innui.CompAndCalcDates
         /// <returns> La cadena  que  representa los resultados obtenidos</returns>
         public static string DiferenciasEntreFechas(List<int> Fecha1, List<int> Fecha2, int Periodo1, int Periodo2)
         {
-            string cadena = "";
+            string cadena;
             int DiferenciaAños = CalcularDiferenciaAños(Periodo1, Periodo2, Fecha1, Fecha2);
             int DiferenciaDias = CalcularDiferenciaDias(Fecha1, Fecha2, DiferenciaAños);
             DiferenciaAños = Math.Abs(DiferenciaAños);
             DiferenciaDias = Math.Abs(DiferenciaDias);
-            cadena += " La diferencia entre ambas Fechas es " + DiferenciaAños + " en años y en días " + DiferenciaDias;
+            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAños, DiferenciaDias);
             return cadena;
         }
 

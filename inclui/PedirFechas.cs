@@ -8,7 +8,7 @@ namespace inclui.CompAndCalcDates
 {
     class PedirFechas
     {
-        private const string FicheroPedirFecha_ES = "Program_ETS.txt";
+        private const string FicheroPedirFecha_ES = @"C:\Users\Alumno\Music\Refactorizar\lenguajes\espannol\Funciones_ES.txt";
         private static List<string> contenidoEspañol = ExtraerFichero.ExtraerContenidoFichero(FicheroPedirFecha_ES);
 
         public static void PrimeraFecha()

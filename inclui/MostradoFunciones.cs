@@ -14,7 +14,7 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="SeleccionIdioma"></param>
         /// <returns></returns>
-        public static List<string> SeleccionFecha(string SeleccionIdioma)
+        public static List<string> SeleccionFecha(string SeleccionIdioma,ref bool error)
         {
             string RutaEspannol = @"..\..\lenguajes\espannol\Funciones_ES.txt";
             string RutaIngles = @"..\..\lenguajes\ingles\Funciones_EN.txt";
@@ -27,7 +27,15 @@ namespace inclui.CompAndCalcDates
             }
 
             List<string> Mensajes = ExtraerFichero.ExtraerContenidoFichero(Ruta);
-
+            if (Mensajes.Count() != 34)
+            {
+                error = true;
+                switch (SeleccionIdioma)
+                {
+                    case "Español": Console.WriteLine("Error, el archivo Program_ES.txt no es válido\nFin del programa"); break; //Español
+                    case "Ingles": Console.WriteLine("Error, Program_EN.txt file is invalid.\nEnd of program"); break; //Ingles
+                }
+            }
             return Mensajes;
         }
 

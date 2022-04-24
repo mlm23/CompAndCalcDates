@@ -8,6 +8,10 @@ namespace inclui.CompAndCalcDates
 {
     class Menu
     {
+        /// <summary>
+        /// Función para que el usuario determine el idioma del programa
+        /// </summary>
+        /// <returns></returns>
         public static string OpcionUsuario()
         {
             string Idioma = "";
@@ -33,7 +37,9 @@ namespace inclui.CompAndCalcDates
 
         }
 
-
+        /// <summary>
+        /// Mostrado de Menú al usuario
+        /// </summary>
         private static void MenuMostrar()
         {
             Console.Clear();

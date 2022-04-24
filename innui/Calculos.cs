@@ -14,7 +14,7 @@ namespace innui.CompAndCalcDates
        /// <param name="Fecha"></param>
        /// <param name="Periodo"></param>
        /// <param name="FechaActual"></param>
-       /// <returns> La cadena  que  representa los resultados obtenidos</returns>
+       /// <returns> La cadena  que  representa la edad de la fecha</returns>
         public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual, List<string> MensajesCalculos)
         {
             string linea;
@@ -24,11 +24,11 @@ namespace innui.CompAndCalcDates
             DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
             //el string linea sirve concatenar el texto y los calculos realizados anteriormente para posteriormente mostrarlo por pantalla
-            linea = inclui.CompAndCalcDates.VariablesCalculos.PrimerConcatenado(DiferenciaAnnos, DiferenciaDias, MensajesCalculos);
+            linea = inclui.CompAndCalcDates.VariablesCalculos.ConcatenarDiferenciaEntreHoy(DiferenciaAnnos, DiferenciaDias, MensajesCalculos);
             return linea;
         }
         /// <summary>
-        ///  Se encarga de calcular la diferencia entre la fechas que se han introducido por usuario , calculando la diferencia entre años y dias
+        ///  Se encarga de calcular la diferencia entre las dos fechas que se han introducido por el usuario , calculando la diferencia entre años y dias
         /// </summary>
         /// <param name="Fecha1"></param>
         /// <param name="Fecha2"></param>
@@ -43,12 +43,12 @@ namespace innui.CompAndCalcDates
             int DiferenciaDias = CalcularDiferenciaDias(Fecha1, Fecha2, DiferenciaAnnos);
             DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
-            cadena = inclui.CompAndCalcDates.VariablesCalculos.SegundoConcatenado(DiferenciaAnnos, DiferenciaDias, Mensajes);
+            cadena = inclui.CompAndCalcDates.VariablesCalculos.ConcantenarDiferenciaEntreFechas(DiferenciaAnnos, DiferenciaDias, Mensajes);
             return cadena;
         }
 
         /// <summary>
-        /// Calcula la diferencia en años entre las fechas con la fecha actual
+        /// Calcula la diferencia en años entre la fecha con la fecha actual
         /// </summary>
         /// <param name="Periodo"></param>
         /// <param name="FechaActual"></param>
@@ -115,13 +115,13 @@ namespace innui.CompAndCalcDates
             //Recorremos el año actual y sumamos los días ya transcurridos en lo que llevamos de año
             for (int contador = 0; contador < FechaActual[1]; contador++)
             {
-                diastotales1 = diastotales1 + NDias[contador];
+                diastotales1 += NDias[contador];
             }
             int diastotales2 = 0;
             //Recorre el año de la fecha introducida y se suma el valor de cada mes trancurrido
             for (int contador = 0; contador < Fecha[1]; contador++)
             {
-                diastotales2 = diastotales2 + NDias[contador];
+                diastotales2 += NDias[contador];
             }
             //La diferencia en años lo multiplicamos por 365, le sumamos los dias bisiestos, los dias transcurridos de la fecha de hoy, sumamos los dias del mes de la fecha actual
             //y luego restamos los dias del mes de la fecha introducida y sus dias totales de los meses de ese año que se habian transcurridos 

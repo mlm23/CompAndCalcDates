@@ -9,6 +9,11 @@ namespace inclui.CompAndCalcDates
 {
     class PedirFechas
     {
+        /// <summary>
+        /// Con el idioma introducido por teclado se seleccionna la ruta del archivo
+        /// </summary>
+        /// <param name="SeleccionIdioma"></param>
+        /// <returns></returns>
         public static List<string> SeleccionFecha(string SeleccionIdioma)
         {
             string RutaEspannol = @"..\..\lenguajes\espannol\Program_ES.txt";

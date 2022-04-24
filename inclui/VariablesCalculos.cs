@@ -9,7 +9,11 @@ namespace inclui.CompAndCalcDates
     class VariablesCalculos
     {
         
-
+        /// <summary>
+        /// Con el idioma introducido por teclado se seleccionna la ruta del archivo 
+        /// </summary>
+        /// <param name="SeleccionIdioma"></param>
+        /// <returns></returns>
         public static List<string> SeleccionFecha(string SeleccionIdioma)
         {
             string RutaEspannol = @"..\..\lenguajes\espannol\Calculos_ES.txt";
@@ -33,7 +37,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="DiferenciasAnnios"></param>
         /// <param name="DiferenciaDias"></param>
         /// <returns></returns>
-        public static string PrimerConcatenado(int DiferenciasAnnios,int DiferenciaDias, List<string> Mensajes)
+        public static string ConcatenarDiferenciaEntreHoy(int DiferenciasAnnios,int DiferenciaDias, List<string> Mensajes)
         {
             string concatenado = Mensajes[0] + DiferenciasAnnios + Mensajes[1] + DiferenciaDias;
             return concatenado;
@@ -44,7 +48,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="DiferenciasAnnios"></param>
         /// <param name="DiferenciaDias"></param>
         /// <returns></returns>
-        public static string SegundoConcatenado(int DiferenciasAnnios, int DiferenciaDias, List<string> Mensajes)
+        public static string ConcantenarDiferenciaEntreFechas(int DiferenciasAnnios, int DiferenciaDias, List<string> Mensajes)
         {
             string concatenado = Mensajes[2] + DiferenciasAnnios + Mensajes[3] + DiferenciaDias;
             return concatenado;

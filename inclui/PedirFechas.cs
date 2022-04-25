@@ -13,6 +13,7 @@ namespace inclui.CompAndCalcDates
         /// Con el idioma introducido por teclado se seleccionna la ruta del archivo
         /// </summary>
         /// <param name="SeleccionIdioma"></param>
+        /// <param name="error"></param>
         /// <returns></returns>
         public static List<string> SeleccionFecha(string SeleccionIdioma,ref bool error)
         {
@@ -41,6 +42,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Muestra la solicitud de la primera fecha
         /// </summary>
+        /// <param name="Mensajes"></param>
         public static void PrimeraFecha(List<string> Mensajes)
         {
             Console.WriteLine(Mensajes[0]);
@@ -48,6 +50,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Muestra la solicitud de la segunda fecha
         /// </summary>
+        /// <param name="Mensajes"></param>
         public static void SegundaFecha(List<string> Mensajes)
         {
             Console.WriteLine(Mensajes[1]);
@@ -55,6 +58,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Espera la continuación del ususario por teclado
         /// </summary>
+        /// <param name="Mensajes"></param>
         public static void Continuar(List<string> Mensajes)
         {
             Console.WriteLine(Mensajes[2]);

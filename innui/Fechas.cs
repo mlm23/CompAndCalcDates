@@ -9,7 +9,7 @@ namespace innui.CompAndCalcDates
     class CalculoYMostradoDeFechas
     {
         /// <summary>
-        /// Pide los periodos de cada fecha para luego mostrar su edad actual y la diferencia entre estas mismas
+        /// Pide los periodos de dos fechas para luego mostrar su edad actual y la diferencia entre estas mismas
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -40,8 +40,8 @@ namespace innui.CompAndCalcDates
                 List<int> FechaActual = Funciones.ObtenerFechaActual();
 
                 //Ahora toca presentar por pantalla las fechas
-                string fecha1 = inclui.CompAndCalcDates.MostradoFunciones.MostrarFechas(Fecha1, MensajesMostrado);
-                string fecha2 = inclui.CompAndCalcDates.MostradoFunciones.MostrarFechas(Fecha2, MensajesMostrado);
+                inclui.CompAndCalcDates.MostradoFunciones.MostrarFechas(Fecha1, MensajesMostrado);
+                inclui.CompAndCalcDates.MostradoFunciones.MostrarFechas(Fecha2, MensajesMostrado);
 
                 inclui.CompAndCalcDates.PedirFechas.Continuar(MensajesPedir);
 

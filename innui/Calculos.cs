@@ -8,13 +8,14 @@ namespace innui.CompAndCalcDates
 {
      public class Calculos
     {
-       /// <summary>
-       /// Se encarga de calcular la diferencia entre la fecha que ha introducido el usuario hasta hoy, calculando la diferencia entre años y dias
-       /// </summary>
-       /// <param name="Fecha"></param>
-       /// <param name="Periodo"></param>
-       /// <param name="FechaActual"></param>
-       /// <returns> La cadena  que  representa la edad de la fecha</returns>
+        /// <summary>
+        /// Se encarga de calcular la diferencia entre la fecha que ha introducido el usuario hasta hoy, calculando la diferencia entre años y dias
+        /// </summary>
+        /// <param name="Fecha"></param>
+        /// <param name="Periodo"></param>
+        /// <param name="FechaActual"></param>
+        /// <param name="Mensajes"></param>
+        /// <returns> La cadena  que  representa la edad de la fecha</returns>
         public static string DiferenciaEntreHoy(List<int> Fecha, int Periodo, List<int> FechaActual, List<string> MensajesCalculos)
         {
             string linea;
@@ -34,7 +35,7 @@ namespace innui.CompAndCalcDates
         /// <param name="Fecha2"></param>
         /// <param name="Periodo1"></param>
         /// <param name="Periodo2"></param>
-        /// <param name="FechaActual"></param>
+        /// <param name="Mensajes"></param>
         /// <returns> La cadena  que  representa los resultados obtenidos</returns>
         public static string DiferenciasEntreFechas(List<int> Fecha1, List<int> Fecha2, int Periodo1, int Periodo2, List<string> Mensajes)
         {
@@ -75,6 +76,7 @@ namespace innui.CompAndCalcDates
         /// <param name="FechaActual"></param>
         /// <param name="Fecha"></param>
         /// <param name="Periodo"></param>
+        /// <param name="difenciaAnno"></param>
         /// <returns> numero de dias totales</returns>
         public static int HallarDiasHastaHoy(List<int> FechaActual, List<int> Fecha, int Periodo, int difenciaAnno)
         {

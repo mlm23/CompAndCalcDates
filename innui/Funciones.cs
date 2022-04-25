@@ -8,11 +8,12 @@ namespace innui.CompAndCalcDates
 {
     public class Funciones
     {
-        
+
 
         /// <summary>
         /// Se encarga de recoger cada dato que va introduciendo por consola y a su vez la va agregando en lista
         /// </summary>
+        /// <param name="Mensajes"></param>
         /// <returns> Una lista con año, mes y día </returns>
         public static List<int> RellenarArrays(List<string> Mensajes)
         {
@@ -48,6 +49,7 @@ namespace innui.CompAndCalcDates
         /// <param name="anno"></param>
         /// <param name="mes"></param>
         /// <param name="bisiesto"></param>
+        /// <param name="Mensajes"></param>
         /// <returns> el valor del dia de la fecha </returns>
         public static int ComprobacionDias(int anno, int mes, bool bisiesto, List<string> Mensajes)
         {
@@ -62,7 +64,8 @@ namespace innui.CompAndCalcDates
                 if (mes == 2)
                 { 
                     //LLamamos a la funcion que chequea el dia esté entre los limites establecidos
-                    inclui.CompAndCalcDates.MostradoFunciones.DiaFebrero(bisiesto, dia, ref Error, Mensajes);
+                    //inclui.CompAndCalcDates.MostradoFunciones.DiaFebrero(bisiesto, dia, ref Error, Mensajes);
+                    Error = inclui.CompAndCalcDates.MostradoFunciones.DiaFebrero(bisiesto, dia,Mensajes);
                     //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                     if (!Error)
                     {
@@ -75,7 +78,7 @@ namespace innui.CompAndCalcDates
                     if (mes % 2 != 0)
                     {
                         //LLamamos a la funcion para verificar que el valor de dia esté entre los limites establecidos (max 31)
-                        inclui.CompAndCalcDates.MostradoFunciones.MesImpar(ref Error, dia, Mensajes);
+                        Error = inclui.CompAndCalcDates.MostradoFunciones.MesImpar(dia, Mensajes);
                         //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                         if (!Error)
                         {
@@ -85,7 +88,7 @@ namespace innui.CompAndCalcDates
                     else
                     {
                         //LLamamos a la funcion para verificar que el valor de dia esté entre los limites establecidos (max 30)
-                        inclui.CompAndCalcDates.MostradoFunciones.MesPar(ref Error, dia, Mensajes);
+                        Error = inclui.CompAndCalcDates.MostradoFunciones.MesPar(dia, Mensajes);
                         //comprobamos que no se haya producido un error y si no hay error salimos del bucle
                         if (!Error)
                         {

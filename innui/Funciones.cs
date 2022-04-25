@@ -51,13 +51,13 @@ namespace innui.CompAndCalcDates
         /// <returns> el valor del dia de la fecha </returns>
         public static int ComprobacionDias(int anno, int mes, bool bisiesto, List<string> Mensajes)
         {
-            int dia = 0;
+            int dia;
             bool Correcto = false;
             bool Error = true;
             do
             {
                 //llamamos a la función que se introduce el número del dia 
-                dia = inclui.CompAndCalcDates.MostradoFunciones.IntroducirDia(mes, anno, dia, Mensajes);
+                dia = inclui.CompAndCalcDates.MostradoFunciones.IntroducirDia(mes, anno,Mensajes);
                 //En el caso que el mes sea febrero
                 if (mes == 2)
                 { 
@@ -93,8 +93,6 @@ namespace innui.CompAndCalcDates
                         }
                     }
                 }
-
-
             } while (!Correcto);
             return dia;
         }

@@ -13,6 +13,7 @@ namespace inclui.CompAndCalcDates
         /// Con el idioma introducido por teclado se seleccionna la ruta del archivo
         /// </summary>
         /// <param name="SeleccionIdioma"></param>
+        /// <param name="error"></param>
         /// <returns></returns>
         public static List<string> SeleccionFecha(string SeleccionIdioma,ref bool error)
         {
@@ -42,8 +43,8 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// esto sirve para presentar por pantalla las fechas que el usuario ha introducido
         /// </summary>
-        /// <param name="Fecha1"> La primera Fecha que ha introducido </param>
-        /// <param name="Fecha2"> La segunda Fecha que ha introducido </param>
+        /// <param name="Fecha"> La  Fecha que ha introducido </param>
+        /// <param name="Mensajes"></param>
         public static string MostrarFechas(List<int> Fecha, List<string> Mensajes)
         {
             string cadena = Mensajes[0] + Fecha[0] + "-" + Fecha[1] + "-" + Fecha[2];
@@ -57,6 +58,7 @@ namespace inclui.CompAndCalcDates
         /// <param name="DiferenciaEntreFechas"> el valor de la diferencia entre las dos fechas introducidas por el usuario</param>
         /// <param name="DiferenciaHoyFecha1"> el valor de la diferencia entre la primera fecha y la fecha actual </param>
         /// <param name="DiferenciaHoyFecha2">  el valor de la diferencia entre la segunda fecha y la fecha actual </param>
+        /// <param name="Mensajes"></param>
         public static void MostrarEdades(string DiferenciaEntreFechas, string DiferenciaHoyFecha1, string DiferenciaHoyFecha2, List<string> Mensajes)
         {
             Console.WriteLine(Mensajes[1]);
@@ -73,6 +75,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Solicitar un número para saber si la fecha está antes o después de Cristo
         /// </summary>
+        /// <param name="Mensajes"></param>
         /// <returns> El valor 0 o 1 que indica el Periodo </returns>
         public static int SolicitarPeriodo(List<string> Mensajes)
         {
@@ -127,6 +130,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Solicita el Año de la fecha 
         /// </summary>
+        /// <param name="Mensajes"></param>
         /// <returns> El valor del año de la fecha</returns>
         public static int SolicitarAnno(List<string> Mensajes)
         {
@@ -173,6 +177,7 @@ namespace inclui.CompAndCalcDates
         /// <summary>
         /// Solicita el mes de la fecha
         /// </summary>
+        /// <param name="Mensajes"></param>
         /// <returns> El valor del mes</returns>
         public static int SolicitarMes(List<string> Mensajes)
         {
@@ -238,10 +243,11 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="mes"></param>
         /// <param name="anno"></param>
-        /// <param name="dia"></param>
-        /// <returns></returns>
-        public static int IntroducirDia(int mes, int anno, int dia, List<string> Mensajes)
+        /// <param name="Mensajes"></param>
+        /// <returns>devuelve el día</returns>
+        public static int IntroducirDia(int mes, int anno,List<string> Mensajes)
         {
+            int dia;
             bool leido = false;
             do
             {
@@ -276,9 +282,11 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="bisiesto"></param>
         /// <param name="dia"></param>
-        /// <param name="Error"></param>
-        public static void DiaFebrero(bool bisiesto, int dia, ref bool Error, List<string> Mensajes)
+        /// <param name="Mensajes"></param>
+        /// /// <returns>booleano para saber si el día no es correcto</returns>
+        public static bool DiaFebrero(bool bisiesto, int dia,List<string> Mensajes)
         {
+            bool Error;
             if (bisiesto)
             {
                 if (dia <= 29)
@@ -309,14 +317,17 @@ namespace inclui.CompAndCalcDates
                     Error = true;
                 }
             }
+            return Error;
         }
         /// <summary>
         /// Se encarga de verificar que en los meses impares cumpla el límite de los 31 días
         /// </summary>
-        /// <param name="Error"></param>
         /// <param name="dia"></param>
-        public static void MesImpar(ref bool Error, int dia, List<string> Mensajes)
+        /// <param name="Mensajes"></param>
+        /// <returns>booleano para saber si el día es correcto</returns>
+        public static bool MesImpar(int dia, List<string> Mensajes)
         {
+            bool Error;
             //en los meses impares del año los días son hasta 31
             if (dia <= 31)
             {
@@ -330,14 +341,17 @@ namespace inclui.CompAndCalcDates
                 Console.Clear();
                 Error = true;
             }
+            return Error;
         }
         /// <summary>
         /// Se encarga de verificar que en los meses pares cumpla el límite de los 30 días
         /// </summary>
-        /// <param name="Error"></param>
         /// <param name="dia"></param>
-        public static void MesPar(ref bool Error, int dia, List<string> Mensajes)
+        /// <param name="Mensajes"></param>
+        /// <returns>booleano para saber si el día es correcto</returns>
+        public static bool MesPar(int dia, List<string> Mensajes)
         {
+            bool Error;
             //en los meses pares del año los días son hasta 30
             if (dia <= 30)
             {
@@ -351,6 +365,7 @@ namespace inclui.CompAndCalcDates
                 Console.Clear();
                 Error = true;
             }
+            return Error;
         }
     }
 }

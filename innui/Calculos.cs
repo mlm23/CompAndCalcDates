@@ -80,55 +80,55 @@ namespace innui.CompAndCalcDates
         /// <returns> numero de dias totales</returns>
         public static int HallarDiasHastaHoy(List<int> FechaActual, List<int> Fecha, int Periodo, int difenciaAnno)
         {
-            int dias = 0;
             //sumamos los años totales para calcular los dias totales bisiestos
-            int AñosTotales = FechaActual[0] + Fecha[0];
-            int diasBisiestos = 0;
-            //Si es en la era de Cristo
-            if(Periodo==1)
-            {
-                //recorremos hacia delante los años
-                for (int contador = Fecha[0]; contador == AñosTotales; contador++)
-                {
-                    //Por cada año bisiesto sumamos un día
-                    if (DateTime.IsLeapYear(contador))
-                    {
-                        diasBisiestos++;
-                    }
-                }
-            }
-            //Si es antes de Cristo
-            if(Periodo==0)
-            {
-                //recoremos hacia atrás
-                for (int contador = Fecha[0]; contador == AñosTotales; contador--)
-                {
-                    //Por cada año bisiesto sumamos un día
-                    if (DateTime.IsLeapYear(contador))
-                    {
-                        diasBisiestos++;
-                    }
-                }
-            }
-            //generamos un array en donde se ve la cantidad total de días por cada mes
-            int[] NDias = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            int diastotales1 = 0;
-
+            int annostotales = FechaActual[0] + Fecha[0];
+            //Sumados los días bisiestos de la fecha dependiendo del periodo
+            int diasBisiestos = DiasBisiestosPorPeriodos(Periodo, Fecha[0],annostotales);           
             //Recorremos el año actual y sumamos los días ya transcurridos en lo que llevamos de año
-            for (int contador = 0; contador < FechaActual[1]; contador++)
-            {
-                diastotales1 += NDias[contador];
-            }
-            int diastotales2 = 0;
+            int diastotales1 = CalcularDiasTotales(FechaActual[1]);
             //Recorre el año de la fecha introducida y se suma el valor de cada mes trancurrido
-            for (int contador = 0; contador < Fecha[1]; contador++)
-            {
-                diastotales2 += NDias[contador];
-            }
+            int diastotales2 = CalcularDiasTotales(Fecha[1]);
             //La diferencia en años lo multiplicamos por 365, le sumamos los dias bisiestos, los dias transcurridos de la fecha de hoy, sumamos los dias del mes de la fecha actual
             //y luego restamos los dias del mes de la fecha introducida y sus dias totales de los meses de ese año que se habian transcurridos 
-            dias = difenciaAnno* 365 + diasBisiestos + diastotales1 + FechaActual[2] - Fecha[2] - diastotales2;
+            int dias = difenciaAnno* 365 + diasBisiestos + diastotales1 + FechaActual[2] - Fecha[2] - diastotales2;
             return dias;
+        }
+        /// <summary>
+        /// Calcula los días de los años bisiestos de le feha segun su periodo
+        /// </summary>
+        /// <param name="Periodo"></param>
+        /// <param name="anno"></param>
+        /// <param name="annostotales"></param>
+        /// <returns></returns>
+        public static int DiasBisiestosPorPeriodos(int Periodo,int anno,int annostotales)
+        {
+            int diasBisiestos = 0;
+            //Si es en la era de Cristo
+            if (Periodo == 1)
+            {
+                //recorremos hacia delante los años
+                for (int contador = anno; contador == annostotales; contador++)
+                {
+                    //Por cada año bisiesto sumamos un día
+                    if (DateTime.IsLeapYear(contador))
+                    {
+                        diasBisiestos++;
+                    }
+                }
+            }
+            else//Es antes de Cristo
+            {
+                //recoremos hacia atrás
+                for (int contador = anno; contador == annostotales; contador--)
+                {
+                    //Por cada año bisiesto sumamos un día
+                    if (DateTime.IsLeapYear(contador))
+                    {
+                        diasBisiestos++;
+                    }
+                }
+            }
+            return diasBisiestos;
         }
         /// <summary>
         /// Calcula la diferencia en años entre las dos fechas introducidas por consola
@@ -174,32 +174,48 @@ namespace innui.CompAndCalcDates
         {
             //sumamos los años totales para calcular los dias totales bisiestos
             int AnnosTotales = Fecha1[0] + Fecha2[0];
-            int diferencias = 0;
-            int diasBisiestos = 0;
             //recorremos los años totales y vemos a cada año bisiesto sumamos un día
-            for (int contador = Fecha1[0]; contador==AnnosTotales; contador++)
+            int diasBisiestos = CalcularDiasBisiestos(Fecha1[0], AnnosTotales);
+            //Recorremos el año de la primera fecha y sumamos los días ya transcurridos en lo que llevamos de año
+            int diastotales1 = CalcularDiasTotales(Fecha1[1]);
+            //Recorre el año de la segunda fecha y se suma el valor de cada mes trancurrido
+            int diastotales2 = CalcularDiasTotales(Fecha2[1]);
+            int diferencias = diferenciaAnno * 365 + diasBisiestos + diastotales1 + Fecha1[2] - Fecha2[2] - diastotales2;
+            return diferencias;
+        }
+        /// <summary>
+        /// Función que devuelve los dias que faltan de los años bisiestos
+        /// </summary>
+        /// <param name="annoFecha">Año de la primera fecha</param>
+        /// <param name="annosTotales">Años totales de las dos fechas sumadas</param>
+        /// <returns></returns>
+        private static int CalcularDiasBisiestos(int annoFecha,int annosTotales)
+        {
+            int diasBisiestos = 0;
+            for (int contador = annoFecha; contador == annosTotales; contador++)
             {
                 if (DateTime.IsLeapYear(contador))
                 {
                     diasBisiestos++;
                 }
             }
+            return diasBisiestos;
+        }
+        /// <summary>
+        /// Función que retorna los días transcurridos de una fecha
+        /// </summary>
+        /// <param name="mes"></param>
+        /// <returns></returns>
+        private static int CalcularDiasTotales(int mes)
+        {
             //generamos un array en donde se ve la cantidad total de días por cada mes
             int[] NDias = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-            int diastotales1 = 0;
-            //Recorremos el año de la primera fecha y sumamos los días ya transcurridos en lo que llevamos de año
-            for (int contador = 0; contador < Fecha1[1]; contador++)
+            int diastotales = 0;
+            for (int contador = 0; contador < mes; contador++)
             {
-                diastotales1 += NDias[contador];
+                diastotales += NDias[contador];
             }
-            //Recorre el año de la segunda fecha y se suma el valor de cada mes trancurrido
-            int diastotales2 = 0;
-            for (int contador = 0; contador < Fecha2[1]; contador++)
-            {
-                diastotales2 += NDias[contador];
-            }
-            diferencias = diferenciaAnno * 365 + diasBisiestos + diastotales1 + Fecha1[2] - Fecha2[2] - diastotales2;
-            return diferencias;
+            return diastotales;
         }
     }
 }

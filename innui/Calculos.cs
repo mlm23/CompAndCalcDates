@@ -189,7 +189,7 @@ namespace innui.CompAndCalcDates
         /// <param name="annoFecha">Año de la primera fecha</param>
         /// <param name="annosTotales">Años totales de las dos fechas sumadas</param>
         /// <returns></returns>
-        private static int CalcularDiasBisiestos(int annoFecha,int annosTotales)
+        public static int CalcularDiasBisiestos(int annoFecha,int annosTotales)
         {
             int diasBisiestos = 0;
             for (int contador = annoFecha; contador == annosTotales; contador++)
@@ -206,7 +206,7 @@ namespace innui.CompAndCalcDates
         /// </summary>
         /// <param name="mes"></param>
         /// <returns></returns>
-        private static int CalcularDiasTotales(int mes)
+        public static int CalcularDiasTotales(int mes)
         {
             //generamos un array en donde se ve la cantidad total de días por cada mes
             int[] NDias = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };

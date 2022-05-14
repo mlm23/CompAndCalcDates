@@ -20,7 +20,7 @@ namespace innui.CompAndCalcDates
         {
             string linea;
             int DiferenciaAnnos = HallarAnnos(Periodo, FechaActual, Fecha);
-            int DiferenciaDias = HallarDiasHastaHoy(FechaActual, Fecha, Periodo,DiferenciaAnnos);
+            int DiferenciaDias = HallarDiasHastaHoy(FechaActual, Fecha,DiferenciaAnnos);
             //si la difencia es negativa , hacemos el valor absoluto para que la diferencia sea positiva
             DiferenciaAnnos = Math.Abs(DiferenciaAnnos);
             DiferenciaDias = Math.Abs(DiferenciaDias);
@@ -75,15 +75,15 @@ namespace innui.CompAndCalcDates
         /// </summary>
         /// <param name="FechaActual"></param>
         /// <param name="Fecha"></param>
-        /// <param name="Periodo"></param>
         /// <param name="difenciaAnno"></param>
         /// <returns> numero de dias totales</returns>
-        public static int HallarDiasHastaHoy(List<int> FechaActual, List<int> Fecha, int Periodo, int difenciaAnno)
+        public static int HallarDiasHastaHoy(List<int> FechaActual, List<int> Fecha,  int difenciaAnno)
         {
             //sumamos los años totales para calcular los dias totales bisiestos
             int annostotales = FechaActual[0] + Fecha[0];
             //Sumados los días bisiestos de la fecha dependiendo del periodo
-            int diasBisiestos = DiasBisiestosPorPeriodos(Periodo, Fecha[0],annostotales);           
+            //int diasBisiestos = DiasBisiestosPorPeriodos(Periodo, Fecha[0],annostotales);
+            int diasBisiestos = CalcularDiasBisiestos(Fecha[0],annostotales);
             //Recorremos el año actual y sumamos los días ya transcurridos en lo que llevamos de año
             int diastotales1 = CalcularDiasTotales(FechaActual[1]);
             //Recorre el año de la fecha introducida y se suma el valor de cada mes trancurrido
@@ -93,43 +93,7 @@ namespace innui.CompAndCalcDates
             int dias = difenciaAnno* 365 + diasBisiestos + diastotales1 + FechaActual[2] - Fecha[2] - diastotales2;
             return dias;
         }
-        /// <summary>
-        /// Calcula los días de los años bisiestos de le feha segun su periodo
-        /// </summary>
-        /// <param name="Periodo"></param>
-        /// <param name="anno"></param>
-        /// <param name="annostotales"></param>
-        /// <returns></returns>
-        public static int DiasBisiestosPorPeriodos(int Periodo,int anno,int annostotales)
-        {
-            int diasBisiestos = 0;
-            //Si es en la era de Cristo
-            if (Periodo == 1)
-            {
-                //recorremos hacia delante los años
-                for (int contador = anno; contador == annostotales; contador++)
-                {
-                    //Por cada año bisiesto sumamos un día
-                    if (DateTime.IsLeapYear(contador))
-                    {
-                        diasBisiestos++;
-                    }
-                }
-            }
-            else//Es antes de Cristo
-            {
-                //recoremos hacia atrás
-                for (int contador = anno; contador == annostotales; contador--)
-                {
-                    //Por cada año bisiesto sumamos un día
-                    if (DateTime.IsLeapYear(contador))
-                    {
-                        diasBisiestos++;
-                    }
-                }
-            }
-            return diasBisiestos;
-        }
+        
         /// <summary>
         /// Calcula la diferencia en años entre las dos fechas introducidas por consola
         /// </summary>
@@ -192,7 +156,7 @@ namespace innui.CompAndCalcDates
         public static int CalcularDiasBisiestos(int annoFecha,int annosTotales)
         {
             int diasBisiestos = 0;
-            for (int contador = annoFecha; contador == annosTotales; contador++)
+            for (int contador = annoFecha; contador <= annosTotales; contador++)
             {
                 if (DateTime.IsLeapYear(contador))
                 {

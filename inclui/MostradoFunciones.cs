@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace inclui.CompAndCalcDates
 {
@@ -179,18 +177,17 @@ namespace inclui.CompAndCalcDates
         /// </summary>
         /// <param name="Mensajes"></param>
         /// <returns> El valor del mes</returns>
-        public static int SolicitarMes(List<string> Mensajes)
+        public static int SolicitarMes(List<string> Mensajes, string SeleccionIdioma)
         {
             int mes = 0;
             //creo un array en donde están los nombres de los meses, el objetivo es que el usuario introduzca el nombre del mes
             //y luego devolver con la posición del array que es lo que corresponde al número del mes
 
-            string[] meses = {"enero","febrero","marzo",
-                "abril","mayo","junio","julio","agosto",
-                    "septiembre","octubre","noviembre","diciembre"};
-            string[] months = {"january","february","march",
-                "april","may","june","july","august",
-                    "september","october","november","december"};
+
+            //Le paso la "SeleccionIdioma" para saber que array de meses escoger, si la ingles o la español.
+            string[] meses = SeleccionIdiomaMeses(SeleccionIdioma);
+          
+   
             bool leido = false;
             do
             {
@@ -219,23 +216,38 @@ namespace inclui.CompAndCalcDates
                                 mes = contador + 1;
                                 recorrer = true;
                                 leido = true;
-                            }
-                            else
-                            {
-                                if (cadena.ToLower() == months[contador])
-                                {
-                                    //el mes es la posicion en donde se haya el mes en el array
-                                    mes = contador + 1;
-                                    recorrer = true;
-                                    leido = true;
-                                }
-                            }
+                            }                           
                         }
                         contador++;
                     }
                 }
             } while (!leido);
             return mes;
+        }
+
+        /// <summary>
+        /// Una funcion que devuelve un array de meses del idioma seleccionado
+        /// </summary>
+        /// <param name="SeleccionIdioma"></param>
+        /// <returns></returns>
+        public static string[] SeleccionIdiomaMeses(string SeleccionIdioma)
+        {
+            string[] MesesSeleccion = new string[12];
+            if (SeleccionIdioma.ToLower() == "español")
+            {
+                string[] meses = {"enero","febrero","marzo",
+                "abril","mayo","junio","julio","agosto",
+                    "septiembre","octubre","noviembre","diciembre"};
+                MesesSeleccion = meses;
+            }
+            else
+            {
+                string[] months = {"january","february","march",
+                "april","may","june","july","august",
+                    "september","october","november","december"};
+                MesesSeleccion = months;
+            }
+            return MesesSeleccion;
         }
 
         /// <summary>

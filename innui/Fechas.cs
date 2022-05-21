@@ -30,13 +30,13 @@ namespace innui.CompAndCalcDates
                 inclui.CompAndCalcDates.PedirFechas.PrimeraFecha(MensajesPedir);
 
                 //Se crea dos numeros que representan el periodo para cada fecha
-                List<int> Fecha1 = Funciones.RellenarArrays(MensajesMostrado);
+                List<int> Fecha1 = Funciones.RellenarArrays(MensajesMostrado, SeleccionIdioma);
                 //Pedimos la segunda fecha
                 inclui.CompAndCalcDates.PedirFechas.SegundaFecha(MensajesPedir);
                 //Solicitamos el periodo de la segunda fecha
                 int PeriodoFecha2 = inclui.CompAndCalcDates.MostradoFunciones.SolicitarPeriodo(MensajesMostrado);
                 //Se recoge los datos a lista para que sea más sencillo los cálculos
-                List<int> Fecha2 = Funciones.RellenarArrays(MensajesMostrado);
+                List<int> Fecha2 = Funciones.RellenarArrays(MensajesMostrado, SeleccionIdioma);
                 List<int> FechaActual = Funciones.ObtenerFechaActual();
 
                 //Ahora toca presentar por pantalla las fechas

@@ -15,12 +15,12 @@ namespace innui.CompAndCalcDates
         /// </summary>
         /// <param name="Mensajes"></param>
         /// <returns> Una lista con año, mes y día </returns>
-        public static List<int> RellenarArrays(List<string> Mensajes)
+        public static List<int> RellenarArrays(List<string> Mensajes, string SeleccionIdioma)
         {
             List<int> Fecha = new List<int>();
             int anno = inclui.CompAndCalcDates.MostradoFunciones.SolicitarAnno(Mensajes);
             Fecha.Add(anno);
-            int mes = inclui.CompAndCalcDates.MostradoFunciones.SolicitarMes(Mensajes);
+            int mes = inclui.CompAndCalcDates.MostradoFunciones.SolicitarMes(Mensajes, SeleccionIdioma);
             Fecha.Add(mes);
             bool bisiesto = Funciones.Comprobarbisiesto(anno);
             int dia = Funciones.ComprobacionDias(anno, mes, bisiesto, Mensajes);
